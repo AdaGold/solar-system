@@ -31,6 +31,3 @@ Let's make a planetary system!
 - Ensure that the each planet has a `@distance_from_the_sun` attribute. Using this data, add a method to determine the distance from any other planet (assuming planets are in a straight line from the sun)
 - Give your solar system a formation year (in earth years).
 - Define a method that returns the local year of the planet based on it's rotation since the beginning of the solar system
-
-
-### [Rubric](rubric.md)
