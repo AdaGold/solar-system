@@ -1,4 +1,4 @@
-# Project 04: Solar System
+# Solar System Project
 Let's make a planetary system!
 
 ## Baseline
