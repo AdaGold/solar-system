@@ -3,7 +3,7 @@ Let's make a planetary system!
 
 ## Learning Goals
 ### Wave 1
-- Create a custom **class*
+- Create a custom **class**
 - Create and use an **initialize** method in your class
 - Create and use **instance variables** in your class
 
