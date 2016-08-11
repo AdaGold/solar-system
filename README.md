@@ -1,6 +1,16 @@
 # Solar System
 Let's make a planetary system!
 
+## Learning Goals
+### Wave 1
+- Create a custom **class*
+- Create and use an **initialize** method in your class
+- Create and use **instance variables** in your class
+
+### Wave 2
+- Use an **array** to store a list of objects
+- Create and use a **method**
+
 ## Baseline
 - Create a `Planet` class with a name attribute.
 - You should be able to instantiate a new `Planet` object with an associated name.
@@ -24,9 +34,8 @@ Let's make a planetary system!
 # Wave 2
 ## Primary Requirements
 - Create a `SolarSystem` class that has an attribute `planets` that has zero to many `Planet` instances. There are a few different options for how to associate the planets with your solar system:
-    - Initialize the list of planets in the constructor of the solar system
     - Create a method that adds a single planet to a solar system
-    - Create a method that adds a list of planets to the existing list of planets
+    - Create a method that adds a list of planets to an existing list of planets
 
 ## Optional Enhancements
 - Ensure that the each planet has a `@distance_from_the_sun` attribute. Using this data, add a method to determine the distance from any other planet (assuming planets are in a straight line from the sun)
