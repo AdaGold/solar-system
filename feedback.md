@@ -6,5 +6,5 @@
 |   Created Custom Class with initialize method & instance variables.	|   	|
 |  Used an Array to store a list of planets in the SolarSystem class. 	|   	|
 |  Regular Commits with meaningful commit messages. 	|   	|
-|  Readable code with consistent indentation 	|   	|
-|  Created a pull request with your name & a meaningful message 	|   	|
+|  Readable code with consistent indentation. 	|   	|
+|  Created a pull request with your name & a meaningful message. 	|   	|
