@@ -2,18 +2,11 @@
 Let's make a planetary system!
 
 ## Learning Goals
-### Wave 1
-- Create a custom **class**
-- Create and use an **initialize** method in your class
-- Create and use **instance variables** in your class
-- Create a method to list your planets
 
-### Wave 2
-- Again create custom class which accepts a hash to initialize it's attributes.  
-
-### Wave 3
-- Use an **array** to store a list of objects
-- Create an object which stores a list of other objects.  
+- Practice creating Custom classes
+- Use a hash to initialize an object
+- Create an object which contains a collection of other objects
+- Practice creating instance methods
 
 
 ## Baseline
