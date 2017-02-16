@@ -6,4 +6,4 @@
 |   Created Custom Class with initialize method & instance variables.	|   	|
 |  Used an Array to store a list of planets in the SolarSystem class. 	|   	|
 |  Readable code with consistent indentation. 	|   	|
-|  Created a pull request with your name & a meaningful message. 	|   	|
+|  Created a pull request with your name & the template questions answered. 	|   	|
