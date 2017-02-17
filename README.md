@@ -11,9 +11,14 @@ Let's make a planetary system!
 
 ## Baseline
 - Create a `SolarSystem` class with an `@planets` instance variable.
-- The initialize method should take a collection of planet names and store them in `@planets`
+
+
+
+# Wave 1
+## Primary Requirements
+- Create an initialize method which should take a collection of planet names and store them in an `@planets` instance variable.
 - Create a method to add a planet to the list.
-- Create a method which will return a list of the planets in this style:
+- Create a method which will return **not print** a list of the planets as a String in this style:
 
 ```bash
 1.  Mercury
@@ -23,15 +28,11 @@ Let's make a planetary system!
 5.  Jupiter
 6.  Hoth
 ```
-
-
-
-# Wave 1
-## Primary Requirements
+- Write code to test your SolarSystem
 - Get creative! Instead of Strings for planets, give SolarSystem a list of hashes where each planet is sent as a hash with at least 5 attributes.  
 
 ## Optional Enhancements
-- Give each planet a rate of solar rotation
+- Give each planet a `year_length` attribute which is the length of time the planet takes to go around it's star.  
 - Give each planet a `distance_from_the_sun` attribute
 - Write a program that asks for user input to query the planets:
   - First, ask the user to select a planet they'd like to learn about.
@@ -47,12 +48,15 @@ Let's make a planetary system!
     - Create a method that **returns** the Planet's attributes in an easy to read fashion.
     - Create accessor methods to the instance variables.
 
+## Optionals
+-  Create a method which creates a planet from user input.
+
 # Wave 3
-- Modify your `SolarSystem` class to use the Planet class instead of a hash.
+## Primary Requirements
 - Create an interface where the user can select a planet and be presented information about the planet.  
 - Allow your user to add their own planet.  
 
 ## Optional Enhancements
 - Ensure that the each planet has a `@distance_from_the_sun` attribute. Using this data, add a method to determine the distance from any other planet (assuming planets are in a straight line from the sun)
-- Give your solar system a formation year (in earth years).
+- Give your solar system an age (in earth years).
 - Define a method that returns the local year of the planet based on it's rotation since the beginning of the solar system
