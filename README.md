@@ -29,7 +29,7 @@ Let's make a planetary system!
 6.  Hoth
 ```
 - Write code to test your SolarSystem
-- Get creative! Instead of Strings for planets, give SolarSystem a list of hashes where each planet is sent as a hash with at least 5 attributes.  
+- Instead of Strings for planets, modify SolarSystem's `initialize` method to take a list of hashes where each planet is sent as a hash with at least 5 attributes.  
 
 ## Optional Enhancements
 - Give each planet a `year_length` attribute which is the length of time the planet takes to go around it's star.  
@@ -46,7 +46,7 @@ Let's make a planetary system!
 - Create a `Planet` class which will represent a planet.
     - Add an `initialize` method which takes a hash and uses the hash to set the class' instance variables.  
     - Create a method that **returns** the Planet's attributes in an easy to read fashion.
-    - Create accessor methods to the instance variables.
+    - Create reader methods to give a user access to read the instance variables.
 
 ## Optionals
 -  Create a method which creates a planet from user input.
