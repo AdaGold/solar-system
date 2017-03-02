@@ -9,13 +9,9 @@ Let's make a planetary system!
 - Practice creating instance methods
 
 
-## Baseline
-- Create a `SolarSystem` class with an `@planets` instance variable.
-
-
-
 # Wave 1
 ## Primary Requirements
+- Create a `SolarSystem` class with an `@planets` instance variable.
 - Create an initialize method which should take a collection of planet names and store them in an `@planets` instance variable.
 - Create a method to add a planet to the list.
 - Create a method which will return **not print** a list of the planets as a String in this style:
