@@ -49,7 +49,7 @@ Let's make a planetary system!
 
 # Wave 3
 ## Primary Requirements
-- Create an interface where the user can select a planet and be presented information about the solar system and select a planet to view more information about.  
+- Create an interface where the user can interact with the solar system and be able to select a planet and view information about it.  
 - Allow your user to add their own planet.  
 
 ## Optional Enhancements
