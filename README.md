@@ -3,7 +3,7 @@ Let's make a planetary system!
 
 ## Learning Goals
 
-- Practice creating Custom classes
+- Practice creating custom classes
 - Use a hash to initialize an object
 - Create an object which contains a collection of other objects
 - Practice creating instance methods
@@ -32,7 +32,7 @@ Let's make a planetary system!
 - Give each planet a `distance_from_the_sun` attribute
 - Write a program that asks for user input to query the planets:
   - First, ask the user to select a planet they'd like to learn about.
-  - Use your method to present the user with a list of planets from which they can choose. Something like:
+  - Present the user with a list of planets from which they can choose. Something like:
     - `1. Mercury, 2. Venus, 3. Earth, 4. Secret Earth, 5. Mars, 6. Jupiter, ... 13. Exit`
   - Provide the user with well formatted information about the planet (diameter, mass, number of moons, primary export, etc.)
   - Then ask the user for another planet.
@@ -45,11 +45,11 @@ Let's make a planetary system!
     - Create reader methods to give a user access to read the instance variables.
 
 ## Optionals
--  Create a method which creates a planet from user input.
+-  Create a method, outside any class, which creates a planet from user input.
 
 # Wave 3
 ## Primary Requirements
-- Create an interface where the user can select a planet and be presented information about the planet.  
+- Create an interface where the user can select a planet and be presented information about the solar system and select a planet to view more information about.  
 - Allow your user to add their own planet.  
 
 ## Optional Enhancements
