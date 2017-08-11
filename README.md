@@ -40,9 +40,11 @@ Let's make a planetary system!
 # Wave 2
 ## Primary Requirements
 - Create a `Planet` class which will represent a planet.
-    - Add an `initialize` method which takes a hash and uses the hash to set the class' instance variables.  
+    - Add an `initialize` method which takes several arguments and uses them to set the class' instance variables.
     - Create a method that **returns** the Planet's attributes in an easy to read fashion.
     - Create reader methods to give a user access to read the instance variables.
+- Make your `SolarSystem` class take an array of `Planet`s instead of hashes.
+    - When printing the planet list or planet details, it should call the corresponding method in `Planet`.
 
 ## Optionals
 -  Create a method, outside any class, which creates a planet from user input.
