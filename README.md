@@ -4,7 +4,6 @@ Let's make a planetary system!
 ## Learning Goals
 
 - Practice creating custom classes
-- Use a hash to initialize an object
 - Create an object which contains a collection of other objects
 - Practice creating instance methods
 
