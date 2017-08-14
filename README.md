@@ -36,7 +36,6 @@ Let's make a planetary system!
   - Provide the user with well formatted information about the planet (diameter, mass, number of moons, primary export, etc.)
   - Then ask the user for another planet.
 
-<!--
 # Wave 2
 ## Primary Requirements
 - Create a `Planet` class which will represent a planet.
@@ -45,11 +44,10 @@ Let's make a planetary system!
     - Create reader methods to give a user access to read the instance variables.
 - Make your `SolarSystem` class take an array of `Planet`s instead of hashes.
     - When printing the planet list or planet details, it should call the corresponding method in `Planet`.
--->
 
-<!--
 ## Optionals
 -  Create a method, outside any class, which creates a planet from user input.
+<!--
 
 # Wave 3
 ## Primary Requirements
