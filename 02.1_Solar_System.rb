@@ -1,4 +1,5 @@
 ### Solar System
+require "awesome_print"
 
 ## Setup Classes
 class SolarSystem
@@ -41,46 +42,6 @@ class Planet
     @known_life = life
   end
 
-  def user_input #no input checks
-    puts "Please answer the following:"
-
-    print "Planet name: "
-    @user_name = gets.chomp.capitalize
-
-    print "Please enter its year length (in Earth days): "
-    @user_days = gets.chomp
-
-    print "Please enter its age (in millions of Earth years): "
-    @user_age = gets.chomp
-
-    print "Please enter the distance from its sun (in AU): "
-    @user_distance = gets.chomp
-
-    print "Please enter the mass in relation to Earth: "
-    @user_mass = gets.chomp
-
-    print "Does your planet have moons? "
-    @user_moons = gets.chomp
-    case @user_moons
-    when "yes","y","true"
-      @user_moons = true
-    else
-      @user_moons = false
-    end
-
-    print "Does your planet have known life? "
-    @user_life = gets.chomp.downcase
-    case @user_life
-    when "yes","y","true"
-      @user_life = true
-    else
-      @user_life = false
-    end
-
-    return Planet.new(@user_name, @user_days, @user_age, @user_distance, @user_mass, @user_moons, @user_life)
-
-  end
-
   def rel_age
     return (SolarSystem::AGE - @earth_age.to_i) * Planet::EARTH_YEAR / @earth_days.to_f
   end
@@ -107,6 +68,45 @@ def user_prompt
   print "(or \"add\" or \"exit\"): "
   user_input = gets.chomp.downcase
   return user_input
+end
+
+def user_planet_input #no input checks
+  puts "Please answer the following:"
+
+  print "Planet name: "
+  user_name = gets.chomp.capitalize
+
+  print "Please enter its year length (in Earth days): "
+  user_days = gets.chomp
+
+  print "Please enter its age (in millions of Earth years): "
+  user_age = gets.chomp
+
+  print "Please enter the distance from its sun (in AU): "
+  user_distance = gets.chomp
+
+  print "Please enter the mass in relation to Earth: "
+  user_mass = gets.chomp
+
+  print "Does your planet have moons? "
+  user_moons = gets.chomp
+  case user_moons
+  when "yes","y","true"
+    user_moons = true
+  else
+    user_moons = false
+  end
+  print "Does your planet have known life? "
+  user_life = gets.chomp.downcase
+  case user_life
+  when "yes","y","true"
+    user_life = true
+  else
+    user_life = false
+  end
+
+  # return Planet.new(@user_name, @user_days, @user_age, @user_distance, @user_mass, @user_moons, @user_life)
+  return [user_name, user_days, user_age, user_distance, user_mass, user_moons, user_life]
 end
 
 
@@ -153,10 +153,10 @@ until selection == "exit"
 
   if selection == "add"
     puts "OK, Let's add a planet!"
-
     valid = false
-    planet_pi = Planet.new(nil,nil,nil,nil,nil,nil,nil)
-    this_system.add_planet (planet_pi.user_input)
+
+    user_planet_array = user_planet_input
+    this_system.add_planet (Planet.new(user_planet_array[0],user_planet_array[1],user_planet_array[2],user_planet_array[3],user_planet_array[4],user_planet_array[5],user_planet_array[6]))
 
     puts "\nGreat, you have just added:"
     puts this_system.planets[-1].prettify
