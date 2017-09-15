@@ -25,7 +25,7 @@ Let's make a planetary system!
 6.  Hoth
 ```
 - Write code to test your SolarSystem
-- Instead of Strings for planets, modify SolarSystem's `initialize` method to take a list of hashes where each planet is sent as a hash with at least 5 attributes.  
+- Instead of Strings for planets, modify `class SolarSystem` methods to take a list of hashes where each planet is sent as a hash with at least 5 attributes.  
 
 ## Optional Enhancements
 - Give each planet a `year_length` attribute which is the length of time the planet takes to go around it's star.  
