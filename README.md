@@ -18,7 +18,7 @@ The learning goal for this wave is to work on building a single class.
 ## Primary Requirements
 - Create a `SolarSystem` class with an `@planets` instance variable.
 - Create an initialize method which should take a collection of planet names and store them in an `@planets` instance variable.
-- Create a method to add a planet to the list.
+- Create a method that adds a planet to the list (not using user input).
 - Create a method which will return, **not print**, a list of the planets as a String in this style:
 
 ```bash
@@ -35,7 +35,7 @@ The learning goal for this wave is to work on building a single class.
 ## Optional Enhancements
 - Give each planet a `year_length` attribute which is the length of time the planet takes to go around it's star.  
 - Give each planet a `distance_from_the_sun` attribute
-- Write a program that asks for user input to query the planets:
+- (This becomes a requirement in Wave 3.) Write a program that asks for user input to query the planets:
   - First, ask the user to select a planet they'd like to learn about.
   - Present the user with a list of planets from which they can choose. Something like:
     - `1. Mercury, 2. Venus, 3. Earth, 4. Secret Earth, 5. Mars, 6. Jupiter, ... 13. Exit`
@@ -54,7 +54,7 @@ The learning goal for this wave is to work on building multiple classes, and com
     - When printing the planet list or planet details, it should call the corresponding method in `Planet`.
 
 ## Optionals
--  Create a method, outside any class, which creates a planet from user input.
+-  (This becomes a requirement in Wave 3.) Create a method, outside any class, which creates a planet from user input.
 
 # Wave 3
 The learning goal for this wave is to build a UI.
