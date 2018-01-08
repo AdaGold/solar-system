@@ -30,7 +30,12 @@ The learning goal for this wave is to work on building a single class.
 6.  Hoth
 ```
 - Write code to test your SolarSystem
-- Instead of Strings for planets, modify SolarSystem's `initialize` method to take a list of hashes where each planet is sent as a hash with at least 5 attributes.  
+- Instead of Strings for planets, modify SolarSystem's `initialize` method to take a list of hashes where each planet is sent as a hash with at least 5 attributes. For example, your code _could_ now look like this:
+```ruby
+planet_a = { name: "Planet A", attrA: "A", attrB: "B" }
+planet_b = { name: "Planet B", attrA: "C", attrB: "D" }
+my_solar_system = SolarSystem.new( [ planet_a, planet_b ] )
+```
 
 ## Optional Enhancements
 - Give each planet a `year_length` attribute which is the length of time the planet takes to go around it's star.  
