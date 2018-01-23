@@ -13,4 +13,5 @@
 |  Accessor methods created  |  |
 |  Method created to **return** the Planet's attributes and not use **puts** |  
 |  Created a user interface to interact with the SolarSystem including adding a planet and viewing a planet's details  |  
+|  Additional Notes | 
 
