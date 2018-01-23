@@ -1,8 +1,12 @@
 # Solar System
+
 Let's make a planetary system!
+
 Our customer needs to be able to learn about a solar system. By the end of our Solar System project, our customer will be able to interact with the program and choose which pieces of information they can see at a time, specifically by choosing which planet.
 
 In wave 1, this project will encourage us to work with hard-coded data, which allows our code to be more simple and readable with a small amount of data. In wave 2, this project will shift our code away from the hard-coded data and instead to use classes. Using classes will allow our code to be more extensible. In wave 3, we will use that work from wave 2 to allow a user to interact with the program, view all planets, and create a new planet.
+
+This is an individual, [stage 1](https://github.com/Ada-Developers-Academy/pedagogy/blob/master/rule-of-three.md#stage-1) project.
 
 ## Learning Goals
 
@@ -38,7 +42,7 @@ my_solar_system = SolarSystem.new( [ planet_a, planet_b ] )
 ```
 
 ## Optional Enhancements
-- Give each planet a `year_length` attribute which is the length of time the planet takes to go around it's star.  
+- Give each planet a `year_length` attribute which is the length of time the planet takes to go around its star.  
 - Give each planet a `distance_from_the_sun` attribute
 - (This becomes a requirement in Wave 3.) Write a program that asks for user input to query the planets:
   - First, ask the user to select a planet they'd like to learn about.
