@@ -3,9 +3,9 @@ Congratulations! You're submitting your assignment.
 
 ## Comprehension Questions
 
-|  Question 	|  Answer 	|
+|  Question 	|  Answer
 |---	|---	|
-|  What was the purpose of the `initialize` method in your class?	|   	|
-|  Describe an instance variable you used and what you used it for.	|   	|
-|  Describe what the difference would be if your `SolarSystem` used an `Array` vs a `Hash`. 	|   	|
-|  Do you feel like you used consistent formatting throughout your code? 	|   	|
+|  What was the purpose of the `initialize` method in your class? | 
+|  Describe an instance variable you used and what you used it for. | 
+|  Describe what the difference would be if your `SolarSystem` used an `Array` vs a `Hash`. | 
+|  Do you feel like you used consistent formatting throughout your code? | 
