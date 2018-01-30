@@ -1,12 +1,20 @@
 # Solar System
 
+## At a Glance
+
+- Build a model of a solar system to practice classes
+- Individual, [stage 1](https://github.com/Ada-Developers-Academy/pedagogy/blob/master/rule-of-three.md#stage-1) project
+- Due before class, Monday Feb 12
+
+## Intro
+
 Let's make a planetary system!
 
 Our customer needs to be able to learn about a solar system. By the end of our Solar System project, our customer will be able to interact with the program and choose which pieces of information they can see at a time, specifically by choosing which planet.
 
 In wave 1, this project will encourage us to work with hard-coded data, which allows our code to be more simple and readable with a small amount of data. In wave 2, this project will shift our code away from the hard-coded data and instead to use classes. Using classes will allow our code to be more extensible. In wave 3, we will use that work from wave 2 to allow a user to interact with the program, view all planets, and create a new planet.
 
-This is an individual, [stage 1](https://github.com/Ada-Developers-Academy/pedagogy/blob/master/rule-of-three.md#stage-1) project.
+
 
 ## Learning Goals
 
