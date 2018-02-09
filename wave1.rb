@@ -22,14 +22,24 @@ class SolarSystem
 end
 
 # creates planets with attributes
-out_of_this_world = { name: "Out-of-this-World", color: "blue"}
-another_planet = { name: "NTP", color: "green"}
+out_of_this_world = {
+  name: "Out-of-this-World",
+  color: "blue"
+}
+another_planet = {
+  name: "NTP",
+  color: "green"
+}
 
 # creates a new SolarSystem with created planets
 kates = SolarSystem.new([out_of_this_world, another_planet])
 
 # adds newly found planet to SolarSystem
-nunu_planet = { name: "ConeHead Planet", color: "off-white"}
+nunu_planet = {
+  name: "Remulak", 
+  color: "off-white"
+}
+
 kates.add_new_planet(nunu_planet)
 
 # prints a list of the planets
