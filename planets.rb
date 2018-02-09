@@ -2,7 +2,7 @@ class SolarSystem
 
   attr_accessor :planets
 
-  def initialize(planets = ["Some Planet", "Hoth", "Earth", "GAH"])
+  def initialize(planets = [{}])
     @planets = planets
   end
 
@@ -10,6 +10,7 @@ class SolarSystem
   def add_new_planet(new_planet)
     @planets.push(new_planet)
   end
+
   # method that returns a list of strings
   def list_planets
     list = ""
@@ -20,8 +21,16 @@ class SolarSystem
   end
 end
 
-kates = SolarSystem.new
+# creates planets with attributes
+out_of_this_world = { name: "Out-of-this-World", color: "blue"}
+another_planet = { name: "NTP", color: "green"}
 
-kates.add_new_planet("Out-of-this-World")
+# creates a new SolarSystem with created planets
+kates = SolarSystem.new([out_of_this_world, another_planet])
 
+# adds newly found planet to SolarSystem
+nunu_planet = { name: "ConeHead Planet", color: "off-white"}
+kates.add_new_planet(nunu_planet)
+
+# prints a list of the planets
 puts kates.list_planets
