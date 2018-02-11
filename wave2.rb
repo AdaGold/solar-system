@@ -20,14 +20,14 @@ class SolarSystem
   attr_accessor :planets
 
   def initialize(planets = Array.new)
-    planet = Planet.new(@name, @age, @distance_from_sun, @year_length, @inhabitants)
+    # new_planet = Planet.new(@name, @age, @distance_from_sun, @year_length, @inhabitants)
     @planets = planets
   end
 
   # method to add new planets
-  def add_new_planet(new_planet)
-    @planets.push(new_planet)
-  end
+  # def add_new_planet(new_planet)
+  #   @planets.push(new_planet)
+  # end
 
   # method that returns a list of strings
   def list_planets

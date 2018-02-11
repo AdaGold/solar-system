@@ -5,20 +5,20 @@
 
 # Planet Class
 class Planet
-  attr_accessor :name, :age, :distance_from_sun, :year_length, :inhabitants
+  attr_accessor :name, :age, :size, :visitor_count, :inhabitants
 
   # create a planet methods
   def initialize(planet_attributes)
     @name = planet_attributes[:name]
     @age = planet_attributes[:age]
-    @distance_from_sun = planet_attributes[:distance_from_sun]
-    @year_length = planet_attributes[:year_length]
+    @size = planet_attributes[:size]
+    @visitor_count = planet_attributes[:visitor_count]
     @inhabitants = planet_attributes[:inhabitants]
   end
 
   # list planet attributes method
   def list_attributes
-    list = "Name: #{@name}, Age: #{@age}, Distance From Sun: #{@distance_from_sun}, Year Length: #{@year_length}, Inhabitants: #{@inhabitants}"
+    list = "Name: #{@name}\nAge: #{@age}\nSize: #{@size}\nVisitor Count: #{@visitor_count}\nInhabitants: #{@inhabitants}\n"
     return list
   end
 end
@@ -45,36 +45,38 @@ end
 
 planets_array = []
 #### test new planets
-kate = {
-  name: "Something",
-  age: 45,
-  distance_from_sun: "6789mi",
-  year_length: "789days",
-  inhabitants: "Cone Heads"
+katmai = {
+  name: "Katmai National Park",
+  age: 38,
+  size: "16,564.09 km",
+  visitor_count: "37,818",
+  inhabitants: "Bears"
 }
 
-random = {
-  name: "Random",
-  age: 4,
-  distance_from_sun: "85mi",
-  year_length: "9days",
-  inhabitants: "Bradlies"
+grand_canyon = {
+  name: "Grand Canyon National Park",
+  age: 99,
+  size: "5,969,811",
+  visitor_count: "9days",
+  inhabitants: "Bison"
 }
 
-kate = Planet.new(kate)
-random = Planet.new(random)
+katmai = Planet.new(katmai)
+grand_canyon = Planet.new(grand_canyon)
 
-planets_array = [kate, random]
+planets_array = [katmai, grand_canyon]
 
-kates = SolarSystem.new(planets_array)
+national_parks = SolarSystem.new(planets_array)
 
-# puts kates.list_planets
+# puts national_parks.list_planets
 #
-# puts random.list_attributes
+# puts grand_canyon.list_attributes
 ####
 
+puts "Welcome to the National Park Universe!"
 
-puts "Which planet would you like to look at? Please select one of the following
-planets in the solar system: "
+puts "Would you like to look at the charcaterists of a planet already in the solar system, or would out like to create a new planet?"
+puts national_parks.list_planets
+
 
 puts "Would you like to make your own planet?"
