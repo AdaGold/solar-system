@@ -89,8 +89,6 @@ def create_planet
 end
 ### End Planet Class
 
-planets_array = []
-
 # Exisiting Planets
 katmai = Planet.new({
   name: "katmai national park",
