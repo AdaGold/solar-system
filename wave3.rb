@@ -59,7 +59,7 @@ class Planet
 
   # list planet attributes method
   def list_attributes
-    list = "Name: #{@name.each_first_letters}\nAge: #{@age}\nSize: #{@size}\nVisitor Count: #{@visitor_count}\nInhabitants: #{@inhabitants}\n"
+    list = "Age: #{@age} Earth years old\nSize: #{@size}\nVisitor Count: #{@visitor_count}\nInhabitants: #{@inhabitants}\n"
     return list
   end
 end
@@ -68,7 +68,7 @@ end
 def create_planet
   new_planet ={}
 
-  print "What is the name of the planet? "
+  print "\nWhat is the name of the planet? "
   new_planet[:name] = gets.chomp.downcase
 
   print "How old is #{new_planet[:name].each_first_letters} in Earth years? "
@@ -89,40 +89,23 @@ def create_planet
 end
 ### End Planet Class
 
-# Exisiting Planets
-katmai = {
-  name: "katmai national park",
-  age: 38,
-  size: "16,564.09 km",
-  visitor_count: "37,818",
-  inhabitants: "bears"
-}
-
-grand_canyon = {
-  name: "grand canyon national park",
-  age: 99,
-  size: "5,969,811",
-  visitor_count: "5,969,811",
-  inhabitants: "bison"
-}
-
 planets_array = []
 
-#### test new planets
+# Exisiting Planets
 katmai = Planet.new({
   name: "katmai national park",
   age: 38,
-  size: "16,564.09 km",
+  size: "16,564.09 sq km",
   visitor_count: "37,818",
-  inhabitants: "bears"
+  inhabitants: "Bears"
 })
 
 grand_canyon = Planet.new({
   name: "grand canyon national park",
   age: 99,
-  size: "5,969,811",
+  size: "1,901.972 sq mi",
   visitor_count: "5,969,811",
-  inhabitants: "bison"
+  inhabitants: "Bison"
 })
 
 # creates an array of exisiting planets
@@ -137,8 +120,9 @@ quit = false
   puts "Welcome to the National Park Universe!"
 
 while !quit
-  puts "\nWould you like to look at the characteristics of a planet alreadyin the"
+  print "\nWould you like to look at the characteristics of a planet already in the"
   puts " National Park solar system, or would out like to create a new planet?"
+  puts "Here are the planets currently in the solar system!"
   puts national_parks.list_planets
 
   print "\nPlease make a selection: "
@@ -156,15 +140,16 @@ while !quit
   if input == planets_array.count + 1
     new_planet = create_planet
     national_parks.add(new_planet)
-    print "\nA new planet called #{new_planet.name.each_first_letters} has been" 
+    print "\nA new planet called #{new_planet.name.each_first_letters} has been"
     puts " created and saved to the solar system"
   # else list characteristics of chosen planet
   else
+    puts "\nHere's the information for #{planets_array[input - 1].name.each_first_letters}"
     puts planets_array[input - 1].list_attributes
   end
 
   ###  starts quit program process
-  print "\n\nWould you like to try another look at the National Park solar system? (y/n) "
+  print "\n\nWould you like another look at the National Park solar system? (y/n) "
   quit_input = gets.chomp.downcase
 
   case quit_input
@@ -179,11 +164,4 @@ while !quit
       quit_input = gets.chomp.downcase
     end
   end
-  ### end
 end
-
-
-# # if the user input is one more than the list of planets, then they want to create a planet
-# if input == (planets_array.length + 1) || input.include?("new", "create")
-#   # create new planet
-# end
