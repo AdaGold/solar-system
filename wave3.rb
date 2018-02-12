@@ -132,31 +132,55 @@ planets_array = [katmai, grand_canyon]
 national_parks = SolarSystem.new(planets_array)
 
 ### Start User interface
-puts "Welcome to the National Park Universe!"
-puts "\nWould you like to look at the characteristics of a planet already"
-puts " in the National Park solar system, or would out like to create a new planet?"
-puts national_parks.list_planets
+quit = false
 
-print "\nPlease make a selection: "
-input = gets.chomp
+  puts "Welcome to the National Park Universe!"
 
-# evaluates user input
-while input.to_i > planets_array.count + 1 || !input.numeric?
-  print "That is an invalid selection. Please try again: "
+while !quit
+  puts "\nWould you like to look at the characteristics of a planet alreadyin the"
+  puts " National Park solar system, or would out like to create a new planet?"
+  puts national_parks.list_planets
+
+  print "\nPlease make a selection: "
   input = gets.chomp
+
+  # evaluates user input
+  while input.to_i > planets_array.count + 1 || !input.numeric?
+    print "That is an invalid selection. Please try again: "
+    input = gets.chomp
+  end
+
+  input = input.to_i # converts input to integer once string "input" is numeric
+
+  # if input is to create a new planet
+  if input == planets_array.count + 1
+    new_planet = create_planet
+    national_parks.add(new_planet)
+    print "\nA new planet called #{new_planet.name.each_first_letters} has been" 
+    puts " created and saved to the solar system"
+  # else list characteristics of chosen planet
+  else
+    puts planets_array[input - 1].list_attributes
+  end
+
+  ###  starts quit program process
+  print "\n\nWould you like to try another look at the National Park solar system? (y/n) "
+  quit_input = gets.chomp.downcase
+
+  case quit_input
+  when "y", "yes", "yep", "yea"
+    quit = false
+  when "n", "nope", "nah"
+    print "Thank you for using the visiting the National Park Universe program! Good bye!"
+    quit = true
+  else
+    while !["y", "yes", "yep", "yea", "n", "nope", "nah"].include?(quit_input)
+      print "Would you like to try another calulation? (y/n) "
+      quit_input = gets.chomp.downcase
+    end
+  end
+  ### end
 end
-
-input = input.to_i
-
-if input == planets_array.count + 1 # if input is to create a new planet
-  new_planet = create_planet
-  national_parks.add(new_planet)
-  puts "\nA new planet called #{new_planet.name.each_first_letters} has been"
-  puts " created and saved to the solar system"
-else # list characteristics of chosen planet
-  puts planets_array[input - 1].list_attributes
-end
-
 
 
 # # if the user input is one more than the list of planets, then they want to create a planet
