@@ -71,7 +71,7 @@ def create_planet
   print "What is the name of the planet? "
   new_planet[:name] = gets.chomp.downcase
 
-  print "How old is #{new_planet[:name].each_first_letters}? "
+  print "How old is #{new_planet[:name].each_first_letters} in Earth years? "
   new_planet[:age] = gets.chomp.to_i
 
   print "What is the size of #{new_planet[:name].each_first_letters}? "
@@ -125,17 +125,16 @@ grand_canyon = Planet.new({
   inhabitants: "bison"
 })
 
+# creates an array of exisiting planets
 planets_array = [katmai, grand_canyon]
 
+# create national park solar system
 national_parks = SolarSystem.new(planets_array)
 
-# puts national_parks.list_planets
-#
-# puts grand_canyon.list_attributes
-####
-
+### Start User interface
 puts "Welcome to the National Park Universe!"
-puts "\nWould you like to look at the characteristics of a planet already in the solar system, or would out like to create a new planet?"
+puts "\nWould you like to look at the characteristics of a planet already"
+puts " in the National Park solar system, or would out like to create a new planet?"
 puts national_parks.list_planets
 
 print "\nPlease make a selection: "
@@ -143,7 +142,7 @@ input = gets.chomp
 
 # evaluates user input
 while input.to_i > planets_array.count + 1 || !input.numeric?
-  print "That is an invalid selection. Please try again."
+  print "That is an invalid selection. Please try again: "
   input = gets.chomp
 end
 
@@ -152,14 +151,15 @@ input = input.to_i
 if input == planets_array.count + 1 # if input is to create a new planet
   new_planet = create_planet
   national_parks.add(new_planet)
-  puts "\nA new planet called #{new_planet.name.each_first_letters} has been created and saved to the solar system"
+  puts "\nA new planet called #{new_planet.name.each_first_letters} has been"
+  puts " created and saved to the solar system"
 else # list characteristics of chosen planet
   puts planets_array[input - 1].list_attributes
 end
 
 
 
-# # if the user input is one more than the list of planets, then they want to create a plant
+# # if the user input is one more than the list of planets, then they want to create a planet
 # if input == (planets_array.length + 1) || input.include?("new", "create")
 #   # create new planet
 # end
