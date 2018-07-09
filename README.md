@@ -12,6 +12,10 @@
 - Create an class which manages a collection of other objects
 - Write code that interacts with classes
 
+## Project Structure
+
+This project is broken up into three waves, each of which consists of a number of steps. You should `git commit` after you've completed each step!
+
 ## Wave 1
 
 The learning goal for this wave is to practice working with individual instances of a single class.
