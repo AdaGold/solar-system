@@ -24,8 +24,55 @@ In wave 1, this project will encourage us to work with hard-coded data, which al
 - Practice creating instance methods
 
 
-# Wave 1
-The learning goal for this wave is to work on building a single class.
+## Wave 1
+The learning goal for this wave is to practice working with individual instances of a single class.
+
+### Instructions
+
+1. Create a class called `Planet`. Each instance of this class will keep track of information about a single planet.
+
+    Pay attention to the details of the class name `Planet`:
+
+    - Class names always start with a capital letter
+    - Class names are usually a noun or noun-phrase
+    - Because each instance is only one planet, we use a singular noun (`Planet` instead of `Planets`)
+
+1. Add a constructor to your `Planet` class. Your constructor should take at least these 5 parameters:
+    - `name`
+    - `color`
+    - `mass_kg`
+    - `distance_from_sun_km`
+    - `fun_fact`
+
+    Each parameter should be saved in an instance variable with the same name (e.g. `@color` for `color`). These instance variables should be _readable_ from outside the class, but not _writable_.
+
+    Once you're done, you should be able to write code like this:
+
+    ```ruby
+    earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
+
+    puts earth.name
+    # => Earth
+    puts earth.fun_fact
+    # => Only planet known to support life
+
+    earth.color = 'pink'
+    # => NoMethodError: undefined method `color=' for #<Planet:0x00007fcfba04c130>
+    # => Did you mean?  color
+    ```
+
+1. Below your `Planet` class, add a method called `main` that will exercise your code. This method should create two different instances of `Planet` and print out some of their attributes. You will need to invoke `main` as the last line of your program.
+
+1. Add an instance method to `Planet` called `summary`. This method should _return_ (not `puts`) a string containing a nicely-formatted description of the planet. Exercise your `summary` method in the `main` method.
+
+    **Question:** Why do we `puts` in `main` but not in `Planet#summary`?
+
+1. **OPTIONAL:** Add error checking to your constructor.
+    - Both `mass_kg` and `distance_from_sun_km` must be numbers that are greater than zero.
+    - What should your program do if they aren't?
+    - How will you make sure this behavior works?
+
+1. **OPTIONAL:** Rewrite your `main` method as a series of minitest tests.
 
 ## Primary Requirements
 - Create a `SolarSystem` class with an `@planets` instance variable.
