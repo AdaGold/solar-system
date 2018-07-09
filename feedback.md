@@ -1,16 +1,23 @@
 # Solar System
 ## What We're Looking For
 
-Feature 	|  Feedback
----	|---	
+Feature | Feedback
+--- |---
 **Baseline** |  
-Readable code with consistent indentation. 	| 
-**Primary Requirements**  | 
-Created Custom Solar System Class with initialize, add planet & list planets methods, without using **puts**.	| 
-Planet Class Created | 
-Created a collection of Planet objects as an instance variable in SolarSystem. | 
-Accessor methods created  | 
-Method created to **return** the Planet's attributes and not use **puts** | 
-Created a user interface to interact with the SolarSystem including adding a planet and viewing a planet's details  | 
-Additional Notes | 
-
+Whitespace (indentation, vertical space, etc) |
+Variable names |
+Git hygiene |
+**Planet**  |
+`initialize` method stores parameters as instance variables with appropriate reader methods |
+`summary` method returns a string |
+**SolarSystem** |
+`initialize` creates an empty list of planets |
+`add_planet` takes an instance of `Planet` and adds it to the list |
+`list_planets` returns a string |
+`find_planet_by_name` returns the correct instance of `Planet` |
+**CLI** |
+Can list planets and quit |
+Can show planet details |
+Can add a planet |
+Complex functionality is broken out into separate methods |
+**Overall** |
