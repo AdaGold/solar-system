@@ -52,7 +52,22 @@ The learning goal for this wave is to practice working with individual instances
     # => Did you mean?  color
     ```
 
-1. Add another file, `main.rb`. This file should `require` `planet.rb`, and contain one method called `main` that will exercise your code. This method should create two different instances of `Planet` and print out some of their attributes. You will need to invoke `main` as the last line of your program.
+1. Add another file, `main.rb`. This file should `require_relative` `planet.rb`, and contain one method called `main` that will exercise your code. This method should create two different instances of `Planet` and print out some of their attributes.
+
+    `main.rb` should have this structure:
+
+    ```ruby
+    # main.rb
+    require_relative 'planet'
+
+    def main
+      # ... do stuff with planets ...
+    end
+
+    main
+    ```
+
+    Note that we invoke `main` as the last line of your program.
 
 1. Add an instance method to `Planet` called `summary`. This method should _return_ (not `puts`) a string containing a nicely-formatted description of the planet. Exercise your `summary` method in the `main` method.
 
@@ -103,12 +118,12 @@ In this wave you will build a second class, `SolarSystem`, which is responsible 
     # => 1.  Earth
     ```
 
-    When you first run this, you may get an error like:
+    **NOTE:** When you first run your driver code, you may get an error like this:
     ```
     NameError: uninitialized constant SolarSystem
     ```
 
-    What does this mean? What do you need to do to fix it?
+    What does this error mean? What do you need to do to fix it?
 
 1. Create a method `SolarSystem#find_planet_by_name`, that takes the name of a planet as a string, and returns the corresponding instance of `Planet`. The lookup should be case-insensitive, so that `Earth`, `earth` and `eArTh` all return the same planet.
 
@@ -146,7 +161,7 @@ In this wave, you will build a command line interface (CLI) to allow a user to i
     1. Create a `SolarSystem` and add some `Planet`s
     1. Enter a control loop that repeatedly asks the user what to do next. The two options at this point are `list planets` and `exit`.
 
-    Remember that you've already implemented listing planets - you should be able to call that method rather than reimplementing it here.
+    Remember that you've already implemented listing planets - you should be able to call that method rather than recreating the logic here.
 
 1. Add a `planet details` option to the control loop. When the user picks this option, the program should should call a separate method that will:
     1. Ask them for the name of the planet they wish to learn about
