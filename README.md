@@ -150,9 +150,36 @@ In this wave you will build a second class, `SolarSystem`, which is responsible 
 
 ## Wave 3
 
-In this wave, you will build a user interface to interact with your classes.
+In this wave, you will build a command line interface (CLI) to allow a user to interact with your classes. This will _replace_ the driver code currently in the `main` method of `main.rb`.
 
 ### Instructions
+
+1. Restructure `main` to do the following:
+    1. Create a `SolarSystem` and add some `Planet`s
+    1. Enter a control loop that repeatedly asks the user what to do next. The two options at this point are `list planets` and `exit`.
+
+    Remember that you've already implemented listing planets - you should be able to call that method rather than reimplementing it here.
+
+1. Add a `planet details` option to the control loop. When the user picks this option, the program should should call a separate method that will:
+    1. Ask them for the name of the planet they wish to learn about
+    1. Display details for that planet
+
+    Again, you should reuse a method you've already built to handle formatting the planet information.
+
+1. Add an `add planet` option to the control loop. When the user picks this option, the program should call a separate method that will:
+    1. Ask the user for details about the planet
+    1. Create a new instance of `Planet` with that info
+    1. Add it to the `SolarSystem`
+
+    The new planet should now appear in the list of planets, and the user should be able to see its details.
+
+1. **OPTIONAL:** Add error handling to the control loop. What happens if the user enters a bad command, asks for details on a planet that doesn't exist, or enters an bad value for a new planet's mass?
+
+1. **OPTIONAL:** Implement the optional `distance_between` method from wave 2, then add an option to the control loop to expose it to the user.
+
+
+
+
 
 ## Primary Requirements
 - Create a `SolarSystem` class with an `@planets` instance variable.
