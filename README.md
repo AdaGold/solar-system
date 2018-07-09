@@ -25,11 +25,12 @@ In wave 1, this project will encourage us to work with hard-coded data, which al
 
 
 ## Wave 1
+
 The learning goal for this wave is to practice working with individual instances of a single class.
 
 ### Instructions
 
-1. Create a class called `Planet`. Each instance of this class will keep track of information about a single planet.
+1. In a file called `planet.rb`, create a class called `Planet`. Each instance of this class will keep track of information about a single planet.
 
     Pay attention to the details of the class name `Planet`:
 
@@ -49,6 +50,8 @@ The learning goal for this wave is to practice working with individual instances
     Once you're done, you should be able to write code like this:
 
     ```ruby
+    # Load Planet into pry:
+    # $ pry -r ./planet.rb
     earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
 
     puts earth.name
@@ -61,7 +64,7 @@ The learning goal for this wave is to practice working with individual instances
     # => Did you mean?  color
     ```
 
-1. Below your `Planet` class, add a method called `main` that will exercise your code. This method should create two different instances of `Planet` and print out some of their attributes. You will need to invoke `main` as the last line of your program.
+1. Add another file, `main.rb`. This file should `require` `planet.rb`, and contain one method called `main` that will exercise your code. This method should create two different instances of `Planet` and print out some of their attributes. You will need to invoke `main` as the last line of your program.
 
 1. Add an instance method to `Planet` called `summary`. This method should _return_ (not `puts`) a string containing a nicely-formatted description of the planet. Exercise your `summary` method in the `main` method.
 
@@ -72,7 +75,84 @@ The learning goal for this wave is to practice working with individual instances
     - What should your program do if they aren't?
     - How will you make sure this behavior works?
 
-1. **OPTIONAL:** Rewrite your `main` method as a series of minitest tests.
+1. **OPTIONAL:** Add minitest tests for `Planet`.
+
+## Wave 2
+
+In this wave you will build a second class, `SolarSystem`, which is responsible for keeping track of a _collection_ of instances of `Planet`.
+
+### Instructions
+
+1. In a new file called `solar_system.rb`, create a new class called `SolarSystem`.
+    - The constructor should take one parameter, `star_name`, and save it in an instance variable.
+    - Each `SolarSystem` should have an instance variable called `@planets`, which will store an array of planets. When the `SolarSystem` is created, `@planets` should be set to an empty array.
+    - Both `@star_name` and `@planets` should be _readable_ but not _writable_.
+
+1. Create a method `SolarSystem#add_planet`, which will take an instance of `Planet` as a parameter and add it to the list of planets.
+
+1. Create a method `SolarSystem#list_planets`, which will _return_ (not `puts`) a string containing a list of all the planets in the system. The string should be formatted in this style:
+
+    ```bash
+    Planets orbiting <star name>
+    1.  Mercury
+    2.  Venus
+    3.  Earth
+    4.  Mars
+    5.  Jupiter
+    ```
+
+1. Update your driver code in `main.rb` to create an instance of `SolarSystem`, add all your `Planet`s to it, and then print the list. Here is an example with one `Planet`:
+
+    ```ruby
+    solar_system = SolarSystem.new('Sol')
+
+    earth = Planet.new('Earth', ...)
+    solar_system.add_planet(earth)
+
+    list = solar_system.list_planets
+    puts list
+    # => Planets orbiting Sol
+    # => 1.  Earth
+    ```
+
+    When you first run this, you may get an error like:
+    ```
+    NameError: uninitialized constant SolarSystem
+    ```
+
+    What does this mean? What do you need to do to fix it?
+
+1. Create a method `SolarSystem#find_planet_by_name`, that takes the name of a planet as a string, and returns the corresponding instance of `Planet`. The lookup should be case-insensitive, so that `Earth`, `earth` and `eArTh` all return the same planet.
+
+    Update your driver code to exercise this method:
+
+    ```ruby
+    found_planet = solar_system.find_planet_by_name('Earth')
+
+    # found_planet is an instance of class Planet
+    puts found_planet
+    # => #<Planet:0x00007fe7c2868ee8>
+
+    puts found_planet.summary
+    # => Earth is a blue-green planet ...
+    ```
+
+    Questions for you to consider as you write this method:
+    - What should your method do if there is no planet with the given name?
+    - What should your method do if there are multiple planets with the given name?
+    - Is there a built-in Ruby enumerable method that could help you here?
+
+1. **OPTIONAL:** Create a method, `SolarSystem#distance_between`, that takes two planet names as parameters and returns the distance between them.
+
+    You can assume that all the planets are lined up in a straight line.
+
+1. **OPTIONAL:** Add minitest tests for `SolarSystem`.
+
+## Wave 3
+
+In this wave, you will build a user interface to interact with your classes.
+
+### Instructions
 
 ## Primary Requirements
 - Create a `SolarSystem` class with an `@planets` instance variable.
