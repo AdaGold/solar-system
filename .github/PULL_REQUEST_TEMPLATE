@@ -5,7 +5,9 @@ Congratulations! You're submitting your assignment.
 
 |  Question 	|  Answer
 |---	|---	|
-|  What was the purpose of the `initialize` method in your class? | 
-|  Describe an instance variable you used and what you used it for. | 
-|  Describe what the difference would be if your `SolarSystem` used an `Array` vs a `Hash`. | 
-|  Do you feel like you used consistent formatting throughout your code? | 
+| When does the `initialize` method run? What does it do? |
+| Why do you imagine we made our instance variables readable but not writable? |
+| How would your program be different if each planet was stored as a `Hash` instead of an instance of a class? |
+| How would your program be different if your `SolarSystem` class used a `Hash` instead of an `Array` to store the list of planets? |
+| The Single Responsibility Principle (SRP) says that each class should be responsible for exactly one thing. Do your classes follow SRP? What responsibilities do they have? |
+| How did you organize your `require` statements? Which files needed `require`s, and which did not? What is the pattern? |
