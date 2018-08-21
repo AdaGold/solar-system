@@ -69,4 +69,9 @@ class SolarSystem
     return "\nDISTANCE BETWEEN #{planet1.name} AND #{planet2.name}: %.3e" %distance_between
   end
 
+  def add_planet(planet)
+    unless planet.is_a? Planet then raise ArgumentError, "Argument must be instance of Planet class" end
+    @planets << planet
+  end
+
 end
