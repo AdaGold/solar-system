@@ -4,6 +4,8 @@
 require "awesome_print"
 require_relative "planet"
 require_relative "solar_system"
+require "data/planets"
+require "csv"
 
 # Page formatting:
 SCREEN_WIDTH = 125
@@ -55,13 +57,7 @@ end
 
 def import_planets_to_solar_system(mini_star)
   # Creates Planet objects and adds them to the SolarSystem
-  imported_planets = []
-  imported_planets << Planet.new("Gorgonzola", "yellow", 2.986e24, 1.682e10, "Only planet accesible by the Space-Q-L8R space escalator")
-  imported_planets << Planet.new("Scamble-Dimp IV", "gross bleu", 3.142e31, 4.001e10, "Worst planet in sector")
-  imported_planets << Planet.new("B-6-Critney", "clear", 1.234e4, 6.78e9, "Probably made of jello")
-  imported_planets << Planet.new("Gorgonzola", "shmello", 1.111e11, 1.111e11, "Shmorgonzola!")
-  imported_planets << Planet.new("B-6-Critney", "clear", 1.234e4, 6.78e9, "Probably made of jello")
-
+  CSV.read()
   imported_planets.each {|p| mini_star.add_planet(p)}
 end
 
@@ -128,7 +124,7 @@ def add_planet(mini_star)
   print "\tColor > "
   new_color = gets.chomp.downcase
   print "\tMass (kg) > "
-  new_mass = gets.chomp.to_f # can enter in scientific notation
+  new_mass = gets.chomp.to_f
   print "\tDistance from sun (km) > "
   new_dist = gets.chomp.to_f
   print "\tFun fact > "
@@ -142,7 +138,8 @@ end
 def header(mini_star)
   puts ":" * SCREEN_WIDTH, "\n"
   puts "SOLAR SYSTEM".center(SCREEN_WIDTH)
-  puts "You are exploring the #{mini_star.star_name.upcase} star system".center(SCREEN_WIDTH)
+  puts "You are exploring the " \
+       "#{mini_star.star_name.upcase} star system".center(SCREEN_WIDTH)
 end
 
 def footer
@@ -152,12 +149,30 @@ end
 main
 
 # To Do:
+# can I do data validation for planet mass and distance from sun?
 # make it possible to search for a part of string (planet name)
 # Refactor the valid names thing to be its own method
 # which did you mean? let user choose a different planet than the default first planet
 # make sure printing ALL happens in main.rb
 # remove argument errors
+# allow entering mass and distance in scientific notation
 # write spec tests for edge cases that I'm ruling out
-# write spec tests for SolarSystem class
+# write spec tests for SolarSystem class``
 # Wave 3: https://github.com/sjlee3157/Solar-System/blob/master/README.md
 # Grading rubric: https://github.com/sjlee3157/Solar-System/blob/master/feedback.md
+
+# imported_planets = []
+# imported_planets << Planet.new("Gorgonzola", "yellow", 2.986e24, 1.682e10,
+#                                "Only planet accesible by the Space-Q-L8R" \
+#                                " space escalator")
+# imported_planets << Planet.new("Scamble-Dimp IV", "gross bleu", 3.142e31,
+#                                 4.001e10, "Worst planet in sector")
+# imported_planets << Planet.new("B-6-Critney", "clear", 1.234e4, 6.78e9,
+#                                "Probably made of jello")
+# imported_planets << Planet.new("Gorgonzola", "shmello", 1.111e11, 1.111e11,
+#                                "Shmorgonzola!")
+# imported_planets << Planet.new("Planet Attitude", "all black", 6.6e6, 6.6e6,
+#                                "Didn't ask to be born")
+# imported_planets << Planet.new("B-6-Critney", "clear", 1.234e4, 6.78e9,
+#                                "Probably made of jello")
+# imported_planets.each {|p| mini_star.add_planet(p)}
