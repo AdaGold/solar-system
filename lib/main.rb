@@ -107,7 +107,7 @@ def prompt_for_valid_numbers(which_prompt)
     print "\t" + which_prompt + " > "
     new_var = gets.chomp
   end
-  return new_var.to_f
+  return new_var.to_f # important!
 end
 
 def planet_details(mini_star)
@@ -124,9 +124,15 @@ def planet_details(mini_star)
 
   if mini_star.has_duplicate_names?(query)
     puts mini_star.list_planet_duplicates_with_warning(query)
+    # print "Enter index of the planet you want: > "
+    # which_duplicate = gets.chomp
+    # until mini_star.find_all_planet_duplicates_by_name(query)[:index].values.include?(which_duplicate)
+    #   print "Enter index of the planet you want: > "
+    #   which_duplicate = gets.chomp
+    # end
   end
 
-  found_first_planet = mini_star.find_planet_by_name(query)
+  found_first_planet = mini_star.find_planet_by_name(query) # Refactor to use hash with which_duplicate
   puts "\nFOUND PLANET:", found_first_planet, "\n", found_first_planet.summary
 end
 
@@ -134,29 +140,27 @@ def distance_between_planets(mini_star)
   # Ask for names of 2 Planets
   # Display distance between those 2 Planets
   puts "\nSearch for planet details by planet's exact name (case-insensitive) >"
-  print "Planet 1 search term: > "
-  query1 = gets.chomp.upcase
-  until mini_star.planets_by_name.include?(query1)
-    print "Planet 1 search term: > "
-    query1 = gets.chomp.upcase
-  end
-
-  if mini_star.has_duplicate_names?(query1)
-    puts mini_star.list_planet_duplicates_with_warning(query1)
-  end
-
-  print "Planet 2 search term: > "
-  query2 = gets.chomp.upcase
-  until mini_star.planets_by_name.include?(query2)
-    print "Planet 2 search term: > "
-    query2 = gets.chomp.upcase
-  end
-
-  if mini_star.has_duplicate_names?(query2)
-    puts mini_star.list_planet_duplicates_with_warning(query2)
-  end
-
+  query1 = get_planet_name(mini_star, 1)
+  query2 = get_planet_name(mini_star, 2)
   puts mini_star.distance_between(query1, query2)
+end
+
+def get_planet_name(mini_star, planet_number)
+  print "Planet #{planet_number} search term: > "
+  query = gets.chomp.upcase
+  until mini_star.planets_by_name.include?(query)
+    print "Planet #{planet_number} search term: > "
+    query = gets.chomp.upcase
+  end
+
+  if mini_star.has_duplicate_names?(query)
+    puts mini_star.list_planet_duplicates_with_warning(query)
+    ##### Add user choice of which duplicate
+  end
+
+  return query  # important don't delete this!
+end
+
 end
 
 def header(mini_star)
@@ -173,14 +177,16 @@ end
 main
 
 # To Do:
+# Finish the refactor for selecting which duplicate
+# refactor SolarSystem#find_all_planet_duplicates_by_name and
+      #list_planet_duplicates_with_warning(query) to be dry and to be saved
+      # as a variable in main.rb (so the same method isn't performed mult times)
 # type q, exit, or quit to quit at any time
 # make it possible to search for a part of string (planet name)
-# Refactor the valid names thing to be its own method
-# which did you mean? let user choose a different planet than the default first planet
-# make sure printing ALL happens in main.rb
-# remove argument errors
+# make sure ALL printing happens in main.rb
+# remove the remaining argument errors
 # allow entering mass and distance in scientific notation
 # write spec tests for edge cases that I'm ruling out
-# write spec tests for SolarSystem class``
+# write spec tests for SolarSystem class, main.rb
 # https://github.com/sjlee3157/Solar-System/blob/master/README.md
 # Grading rubric: https://github.com/sjlee3157/Solar-System/blob/master/feedback.md
