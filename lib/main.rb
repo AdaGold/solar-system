@@ -25,21 +25,29 @@ def sun
   list = mini_star.list_planets
   puts "\n", list, "\n"
 
-  found_planets = mini_star.find_planet_by_name("goRgonZOla")
+  found_planets = mini_star.find_all_planet_duplicates_by_name("goRgonZOla")
   puts "\nFOUND PLANET(S):\n"
   found_planets.each { |p| puts p }
   puts "\n"
   found_planets.each { |p| puts p.summary, "\n"}
   puts "\n"
 
-  found_first_planet = mini_star.find_first_planet_name("scamble-dimp iv")
+  found_first_planet = mini_star.find_planet_by_name("scamble-dimp iv")
   puts "\nFOUND PLANET:", found_first_planet
   puts found_first_planet.summary
 
   planet1 = "Scamble-Dimp IV"
   planet2 = "B-6-Critney"
 
-  puts "\nDISTANCE BETWEEN #{mini_star.find_first_planet_name(planet1).name} and #{mini_star.find_first_planet_name(planet2).name}: #{mini_star.distance_between(planet1, planet2)}"
+  puts "\nDISTANCE BETWEEN #{mini_star.find_planet_by_name(planet1).name} and #{mini_star.find_planet_by_name(planet2).name}: #{mini_star.distance_between(planet1, planet2)}"
 end
 
 sun
+
+
+# To Do:
+# remove argument errors
+# write spec tests for edge cases that I'm ruling out
+# write spec tests for SolarSystem class
+# Wave 3: https://github.com/sjlee3157/Solar-System/blob/master/README.md
+# Grading rubric: https://github.com/sjlee3157/Solar-System/blob/master/feedback.md

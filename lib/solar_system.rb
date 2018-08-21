@@ -21,7 +21,7 @@ class SolarSystem
     return list
   end
 
-  def find_planet_by_name(string)
+  def find_all_planet_duplicates_by_name(string)
   # returns an Array of all duplicates
     raise ArgumentError, "Search term must be a String" unless string.is_a? String
 
@@ -35,7 +35,7 @@ class SolarSystem
     return found_planets = indices.map{ |i| @planets[i]}
   end
 
-  def find_first_planet_name(string)
+  def find_planet_by_name(string)
   # returns first Planet that matches your search
     raise ArgumentError, "Search term must be a String" unless string.is_a? String
 
@@ -48,8 +48,8 @@ class SolarSystem
   end
 
   def distance_between(planet1, planet2)
-    planet1 = find_first_planet_name(planet1)
-    planet2 = find_first_planet_name(planet2)
+    planet1 = find_planet_by_name(planet1)
+    planet2 = find_planet_by_name(planet2)
 
     return (planet1.distance_from_sun_km - planet2.distance_from_sun_km).abs
   end
