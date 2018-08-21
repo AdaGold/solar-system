@@ -11,6 +11,10 @@ class Planet
     @mass_kg = mass_kg
     @distance_from_sun_km = distance_from_sun_km
     @fun_fact = fun_fact
+
+    unless self.distance_from_sun_km.is_a?(Float) && self.mass_kg > 0 then raise ArgumentError, "Mass must be a number > 0" end
+    unless self.distance_from_sun_km.is_a?(Float) && self.distance_from_sun_km > 0 then raise ArgumentError, "Mass must be a number > 0" end
+
   end
 
   def summary
