@@ -16,7 +16,7 @@ class Planet
   end
 
   def summary
-    return "Planet Summary:\n\nPlanet~ #{@name}\nColor~ #{@color}\nMass (kg)~ #{@mass_kg}\nDist. from Sun (km)~ #{@distance_from_sun_km}\nFun Fact~ #{@fun_fact}"
+    return sprintf("Planet Summary:\n\nPlanet~ #{@name}\nColor~ #{@color}\nMass (kg)~ %.3e\nDist. from Sun (km)~ %.3e\nFun Fact~ #{@fun_fact}", @mass_kg, @distance_from_sun_km)
   end
 
 end
