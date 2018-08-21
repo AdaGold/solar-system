@@ -124,9 +124,15 @@ def planet_details(mini_star)
 
   if mini_star.has_duplicate_names?(query)
     puts mini_star.list_planet_duplicates_with_warning(query)
+    # print "Enter index of the planet you want: > "
+    # which_duplicate = gets.chomp
+    # until mini_star.find_all_planet_duplicates_by_name(query)[:index].values.include?(which_duplicate)
+    #   print "Enter index of the planet you want: > "
+    #   which_duplicate = gets.chomp
+    # end
   end
 
-  found_first_planet = mini_star.find_planet_by_name(query)
+  found_first_planet = mini_star.find_planet_by_name(query) # Refactor to use hash with which_duplicate
   puts "\nFOUND PLANET:", found_first_planet, "\n", found_first_planet.summary
 end
 
@@ -173,14 +179,16 @@ end
 main
 
 # To Do:
+# Finish the refactor for selecting which duplicate
+# refactor SolarSystem#find_all_planet_duplicates_by_name and
+      #list_planet_duplicates_with_warning(query) to be dry and to be saved
+      # as a variable in main.rb (so the same method isn't performed mult times)
 # type q, exit, or quit to quit at any time
 # make it possible to search for a part of string (planet name)
-# Refactor the valid names thing to be its own method
-# which did you mean? let user choose a different planet than the default first planet
-# make sure printing ALL happens in main.rb
-# remove argument errors
+# make sure ALL printing happens in main.rb
+# remove the remaining argument errors
 # allow entering mass and distance in scientific notation
 # write spec tests for edge cases that I'm ruling out
-# write spec tests for SolarSystem class``
+# write spec tests for SolarSystem class, main.rb
 # https://github.com/sjlee3157/Solar-System/blob/master/README.md
 # Grading rubric: https://github.com/sjlee3157/Solar-System/blob/master/feedback.md
