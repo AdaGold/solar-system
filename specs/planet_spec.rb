@@ -35,7 +35,7 @@ describe "Test Planet class" do
   end
 end
 
-# describe "Test main.rb" do
-#   it "" do
-#   end
-# end
+describe "Test main.rb" do
+  it 
+  end
+end
