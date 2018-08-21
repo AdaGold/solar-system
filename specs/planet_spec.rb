@@ -34,8 +34,3 @@ describe "Test Planet class" do
     expect(gorgonzola.summary).must_include "yellow"
   end
 end
-
-# describe "Test main.rb" do
-#   it "" do
-#   end
-# end
