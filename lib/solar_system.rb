@@ -7,16 +7,18 @@ class SolarSystem
   def initialize(star_name)
     @star_name = star_name
     @planets = []
-    @planets_by_name = []
+    #@planets_by_name = []
   end
 
   def add_planet(planet)
     # don't do this
     raise ArgumentError, "Argument must be instance of Planet class" unless planet.is_a? Planet
     @planets << planet
-    @planets_by_name = @planets.map{ |p| p.name.upcase }
-    return planet
   end
+
+def add_planet_name(planet)
+  @planets_by_name = @planets.map{ |p| p.name.upcase }
+end
 
   def list_planets
     list = "Planets orbiting #{@star_name}:\n"
@@ -27,15 +29,12 @@ class SolarSystem
   def find_planet_by_name(query)
   # returns first Planet object that matches your search
     query.upcase!
-    raise ArgumentError, "Search term must be a String" unless query.is_a? String
-    raise ArgumentError, "Invalid planet (planet not found in this solar system)" unless @planets_by_name.include? (query)
     return @planets[@planets_by_name.index(query)]
   end
 
   def has_duplicate_names?(query)
     # returns Boolean
     query.upcase!
-    raise ArgumentError, "Search term must be a String" unless query.is_a? String
     return @planets_by_name.count{|p|p == query} > 1
   end
 
@@ -66,7 +65,7 @@ class SolarSystem
     planet1 = find_planet_by_name(query1)
     planet2 = find_planet_by_name(query2)
     distance_between = (planet1.distance_from_sun_km - planet2.distance_from_sun_km).abs
-    return "\nDISTANCE BETWEEN #{planet1.name} AND #{planet2.name}: %.3e" %distance_between
+    return "\nDISTANCE BETWEEN #{planet1.name} AND #{planet2.name}: %.3e km" %distance_between
   end
 
   def add_planet(planet)

@@ -4,7 +4,6 @@
 require "awesome_print"
 require_relative "planet"
 require_relative "solar_system"
-require "data/planets"
 require "csv"
 
 # Page formatting:
@@ -15,11 +14,27 @@ def main
   # This stuff initializes planet and solar system
   # Do I want this to be user-driven?
   mini_star = SolarSystem.new("Mini-Star")
-  import_planets_to_solar_system(mini_star)
+  import_planets_to_solar_system("../data/planets.csv", mini_star)
 
   header(mini_star)
   footer
   menu(mini_star)
+end
+
+def import_planets_to_solar_system(filename, mini_star)
+  # Creates Planet objects and adds them to the SolarSystem
+  # Add name to name Array
+  imported_planets = CSV.read(filename, headers:true).map{ |row| row.to_h }
+  mass_float = {"Mass (kg)" => 0.0}
+  dist_float = {"Dist. from Sun (km)" => 0.0}
+  imported_planets = imported_planets.map{ |h| h.merge(mass_float){ |k,v| v.to_f } }
+  imported_planets = imported_planets.map{ |h| h.merge(dist_float){ |k,v| v.to_f } }
+  imported_planets.each do |h|
+    new_planet = Planet.new(h["Name"], h["Color"], h["Mass (kg)"],
+                            h["Dist. from Sun (km)"], h["Fun Fact"])
+    mini_star.add_planet(new_planet)
+    mini_star.add_planet_name(new_planet)
+  end
 end
 
 def menu(mini_star)
@@ -55,15 +70,44 @@ def menu(mini_star)
 
 end
 
-def import_planets_to_solar_system(mini_star)
-  # Creates Planet objects and adds them to the SolarSystem
-  CSV.read()
-  imported_planets.each {|p| mini_star.add_planet(p)}
-end
-
 def list_planets(mini_star)
   # Display a list of all the Planets in the SolarSystem
   puts "\n", mini_star.list_planets
+end
+
+def add_planet(mini_star)
+# Ask the user for details about the Planet
+# Create a new instance of Planet with that info
+# Add it to the SolarSystem
+  puts "\nADD A PLANET\n"
+
+  print "\tName > "
+  new_name = gets.chomp.capitalize
+
+  print "\tColor > "
+  new_color = gets.chomp.downcase
+
+  new_mass = prompt_for_valid_numbers("Mass (kg)")
+  new_dist = prompt_for_valid_numbers("Distance from sun (km)")
+
+  print "\tFun fact > "
+  new_fact = gets.chomp.capitalize
+
+  new_planet = Planet.new(new_name, new_color, new_mass, new_dist, new_fact)
+  mini_star.add_planet(new_planet) # this is really important--don't remove!
+  mini_star.add_planet_name(new_planet) # this is really important--don't remove!
+  puts "\nPlanet added:", new_planet, "\n", new_planet.summary
+end
+
+def prompt_for_valid_numbers(which_prompt)
+  print "\t" + which_prompt + " > "
+  new_var = gets.chomp
+  until new_var.to_f > 0 && new_var =~ /\A\d*(\.{1}\d+)?\z/
+    puts which_prompt + " must be a number > 0"
+    print "\t" + which_prompt + " > "
+    new_var = gets.chomp
+  end
+  return new_var.to_f
 end
 
 def planet_details(mini_star)
@@ -72,6 +116,7 @@ def planet_details(mini_star)
   puts "\nSearch for planet details by planet's exact name (case-insensitive) >"
   print "Search term: > "
   query = gets.chomp.upcase
+  p mini_star.planets_by_name
   until mini_star.planets_by_name.include?(query)
     print "Search term: > "
     query = gets.chomp.upcase
@@ -114,27 +159,6 @@ def distance_between_planets(mini_star)
   puts mini_star.distance_between(query1, query2)
 end
 
-def add_planet(mini_star)
-# Ask the user for details about the Planet
-# Create a new instance of Planet with that info
-# Add it to the SolarSystem
-  puts "\nADD A PLANET\n"
-  print "\tName > "
-  new_name = gets.chomp.capitalize
-  print "\tColor > "
-  new_color = gets.chomp.downcase
-  print "\tMass (kg) > "
-  new_mass = gets.chomp.to_f
-  print "\tDistance from sun (km) > "
-  new_dist = gets.chomp.to_f
-  print "\tFun fact > "
-  new_fact = gets.chomp.capitalize
-
-  new_planet = Planet.new(new_name, new_color, new_mass, new_dist, new_fact)
-  mini_star.add_planet(new_planet) # this is really important--don't remove!
-  puts "\nPlanet added:", new_planet, "\n", new_planet.summary
-end
-
 def header(mini_star)
   puts ":" * SCREEN_WIDTH, "\n"
   puts "SOLAR SYSTEM".center(SCREEN_WIDTH)
@@ -149,7 +173,7 @@ end
 main
 
 # To Do:
-# can I do data validation for planet mass and distance from sun?
+# type q, exit, or quit to quit at any time
 # make it possible to search for a part of string (planet name)
 # Refactor the valid names thing to be its own method
 # which did you mean? let user choose a different planet than the default first planet
@@ -158,21 +182,5 @@ main
 # allow entering mass and distance in scientific notation
 # write spec tests for edge cases that I'm ruling out
 # write spec tests for SolarSystem class``
-# Wave 3: https://github.com/sjlee3157/Solar-System/blob/master/README.md
+# https://github.com/sjlee3157/Solar-System/blob/master/README.md
 # Grading rubric: https://github.com/sjlee3157/Solar-System/blob/master/feedback.md
-
-# imported_planets = []
-# imported_planets << Planet.new("Gorgonzola", "yellow", 2.986e24, 1.682e10,
-#                                "Only planet accesible by the Space-Q-L8R" \
-#                                " space escalator")
-# imported_planets << Planet.new("Scamble-Dimp IV", "gross bleu", 3.142e31,
-#                                 4.001e10, "Worst planet in sector")
-# imported_planets << Planet.new("B-6-Critney", "clear", 1.234e4, 6.78e9,
-#                                "Probably made of jello")
-# imported_planets << Planet.new("Gorgonzola", "shmello", 1.111e11, 1.111e11,
-#                                "Shmorgonzola!")
-# imported_planets << Planet.new("Planet Attitude", "all black", 6.6e6, 6.6e6,
-#                                "Didn't ask to be born")
-# imported_planets << Planet.new("B-6-Critney", "clear", 1.234e4, 6.78e9,
-#                                "Probably made of jello")
-# imported_planets.each {|p| mini_star.add_planet(p)}
