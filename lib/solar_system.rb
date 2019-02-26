@@ -23,6 +23,8 @@ class SolarSystem
 
     return conclusion_statement + planet_list
   end
-end
 
-# earth = Planet.new("Earth", "blue-green", 5.972e24, 1.496e8, "Only planet known to support life")
+  def find_planet_by_name(planet_name)
+    @planets.find { |planet| planet.name.downcase == planet_name.downcase }
+  end
+end
