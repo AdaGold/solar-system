@@ -22,4 +22,12 @@ def main
   puts found_planet.summary
 end
 
-main
+puts "Welcome to Solar System program!"
+puts "Please enter 'list planets' if you would like to see facts about planets. Enter 'exit' to exit the program"
+user_input = gets.chomp
+
+until user_input.downcase == "exit"
+  main
+  puts "Please enter 'list planets' if you would like to see facts about planets. Enter 'exit' to exit the program"
+  user_input = gets.chomp
+end
