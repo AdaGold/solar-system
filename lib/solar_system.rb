@@ -34,9 +34,9 @@ class SolarSystem
     puts "Please enter new planet's color"
     planet_color = gets.chomp
     puts "Please enter new planet's mass in kilograms"
-    planet_mass = gets.chomp
+    planet_mass = gets.chomp.to_i
     puts "Please enter the distance between this new planet and the sun"
-    planet_distance = gets.chomp
+    planet_distance = gets.chomp.to_i
     puts "Please enter new planet's fun_fact"
     fun_fact = gets.chomp
 
