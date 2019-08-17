@@ -9,5 +9,5 @@ Congratulations! You're submitting your assignment.
 | Why do you imagine we made our instance variables readable but not writable? |
 | How would your program be different if each planet was stored as a `Hash` instead of an instance of a class? |
 | How would your program be different if your `SolarSystem` class used a `Hash` instead of an `Array` to store the list of planets? |
-| The Single Responsibility Principle (SRP) says that each class should be responsible for exactly one thing. Do your classes follow SRP? What responsibilities do they have? |
+| There is a software design principle called the SRP. The Single Responsibility Principle (SRP) says that each class should be responsible for exactly one thing. Do your classes follow SRP? What responsibilities do they have? |
 | How did you organize your `require` statements? Which files needed `require`s, and which did not? What is the pattern? |
