@@ -3,13 +3,13 @@
 ## At a Glance
 
 - Build a model of a solar system to practice working with classes
-- Individual, [stage 1](https://github.com/Ada-Developers-Academy/pedagogy/blob/master/rule-of-three.md#stage-1) project
+- Individual, [stage 1](https://github.com/Ada-Developers-Academy/pedagogy/blob/master/classroom/rule-of-three.md#stage-1) project
 - Due before class, <DATE>
 
 ## Learning Goals
 
 - Create a class to tie together data and methods
-- Create an class which manages a collection of other objects
+- Create a class which manages a collection of other objects
 - Write code that interacts with classes
 
 ## Project Structure
