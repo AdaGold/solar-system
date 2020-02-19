@@ -1,5 +1,6 @@
 class Planet
 
+  # CODE REVIEW 1/8: Implements Planet class. The initialize stores parameters as instance variables with appropriate reader methods
   attr_reader :name, :color, :mass_kg, :distance_from_sun_km, :fun_fact
 
   def initialize(name, color, mass_kg, distance_from_sun_km, fun_fact)
@@ -10,6 +11,7 @@ class Planet
     @fun_fact = fun_fact
   end
 
+  # CODE REVIEW 2/8: Planet class has a summary method, which returns a string
   def summary
     # There are many ways we could implement this method.
     # Note that there are a lot of different syntaxes

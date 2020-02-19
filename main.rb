@@ -46,10 +46,13 @@ def get_new_user_planet
   fun_fact = gets.chomp
 
   new_planet = Planet.new(name, color, mass, distance, fun_fact)
-  
+
   return new_planet
 end
 
+
+# CODE REVIEW 7/7: Complex functionality is broken out into separate methods
+# Note: Check to see if there are opportunities to move complex logic outside of the main method, and into another method within this file.
 def main
   my_solar_system = setup_solar_system
 
@@ -85,3 +88,9 @@ def main
 end
 
 main
+
+# CODE REVIEW 8/8: Practices git with at least 3 small commits and meaningful commit messages
+
+# FUNCTIONAL REQS 1/3: The CLI can list planets and quit
+# FUNCTIONAL REQS 2/3: The CLI can show planet details
+# FUNCTIONAL REQS 3/3: The CLI can add a planet
