@@ -51,7 +51,7 @@ def get_new_user_planet
 end
 
 
-# CODE REVIEW 7/7: Complex functionality is broken out into separate methods
+# CODE REVIEW 7/8: Complex functionality is broken out into separate methods
 # Note: Check to see if there are opportunities to move complex logic outside of the main method, and into another method within this file.
 def main
   my_solar_system = setup_solar_system
