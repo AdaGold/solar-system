@@ -24,12 +24,21 @@ def get_user_action_choice
     puts "💫 #{choice}"
   end
 
-  return gets.chomp
+  action_choice = gets.chomp
+
+  puts ""
+
+  return action_choice
 end
 
 def get_user_planet_choice
   puts "What is the name of the planet you wish to learn about?"
-  return gets.chomp
+
+  planet_choice = gets.chomp
+
+  puts ""
+
+  return planet_choice
 end
 
 def get_new_user_planet
@@ -44,6 +53,7 @@ def get_new_user_planet
   distance = gets.chomp
   puts "Fun fact about planet:"
   fun_fact = gets.chomp
+  puts ""
 
   new_planet = Planet.new(name, color, mass, distance, fun_fact)
 
@@ -72,7 +82,7 @@ def main
       if (found_planet)
         puts found_planet.summary
       else
-        puts "I couldn't find a planet by the name #{user_planet_details_choice}."
+        puts "I couldn't find a planet by the name #{planet_name}.\n\n"
       end
 
     when "ADD PLANET"

@@ -17,7 +17,7 @@ class Planet
     # Note that there are a lot of different syntaxes
     #   that are valid, too. We listed some in the comments.
 
-    return "The planet #{name} is the color #{color}. It has a mass of #{mass_kg} kg. It is #{distance_from_sun_km} km away from the sun. #{fun_fact}."
+    return "The planet #{name} is the color #{color}. It has a mass of #{mass_kg} kg. It is #{distance_from_sun_km} km away from the sun. #{fun_fact}.\n\n"
 
     # return "The planet #{@name} is the color #{@color}. It has a mass of #{@mass_kg} kg. It is #{@distance_from_sun_km} km away from the sun. #{@fun_fact}."
 

@@ -20,6 +20,7 @@ class SolarSystem
     planets.each do |planet|
       list += "- #{planet.name}\n"
     end
+    list += "\n"
     return list
   end
 
