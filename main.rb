@@ -1,6 +1,43 @@
 require_relative 'solar_system'
 require_relative 'planet'
 
+def display_details(solar_system)
+  puts "Name a planet you want to see details about"
+  list = solar_system.list_planets
+  puts list
+  planet_input = gets.chomp.downcase
+  found_planet = solar_system.find_planet_by_name(planet_input)
+  # Handing invalid user input
+  puts found_planet ? found_planet.summary : "Planet not found"
+end
+
+def add_planet(solar_system)
+  print "What is the name of a planet you want to add? => "
+  planet_name = gets.chomp.downcase
+  # Handing a duplicate for already listed planet 
+  while solar_system.find_planet_by_name(planet_name)
+    puts "Such planet is already listed in the Solar system. Please type another planet name => "
+    planet_name = gets.chomp.downcase
+  end
+  # Handling an empty string input
+  while planet_name == ""
+    print "Please type a planet name => "
+    planet_name = gets.chomp.downcase
+  end
+  print "What is a color of #{planet_name}? => "
+  planet_color = gets.chomp.downcase
+  print "What is a mass of #{planet_name}? => "
+  planet_mass = gets.chomp.to_i
+  print "What is its distance from the Sun in km? => "
+  distance_from_sun_km = gets.chomp.to_i
+  print "What is a fun fact about #{planet_name}? => "
+  fun_fact = gets.chomp.downcase
+  new_planet = Planet.new(planet_name, planet_color, planet_mass, distance_from_sun_km, 
+  fun_fact)
+  solar_system.add_planet(new_planet)
+  puts new_planet.summary
+end
+
 def main
   earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'it is the only planet known to support life')
   pluto = Planet.new('Pluto', 'varied, grey-orange', 1.30900e22, 5.906e9, 
@@ -32,36 +69,9 @@ def main
   solar_system.add_planet(uranus)
   solar_system.add_planet(neptune)
 
-  def display_details(solar_system)
-    puts "Name a planet you want to see details about."
-    list = solar_system.list_planets
-    puts list
-    planet_input = gets.chomp.downcase
-    found_planet = solar_system.find_planet_by_name(planet_input)
-    # Handing invalid user input
-    puts found_planet ? found_planet.summary : "Planet not found"
-  end
-
-  def add_planet(solar_system)
-    print "What is the name of a planet you want to add? => "
-    planet_name = gets.chomp.downcase
-    print "What is a color of #{planet_name}? => "
-    planet_color = gets.chomp.downcase
-    print "What is a mass of #{planet_name}? => "
-    planet_mass = gets.chomp.to_i
-    print "What is its distance from the Sun in km? => "
-    distance_from_sun_km = gets.chomp.to_i
-    print "What is a fun fact about #{planet_name}? => "
-    fun_fact = gets.chomp.downcase
-    new_planet = Planet.new(planet_name, planet_color, planet_mass, distance_from_sun_km, 
-    fun_fact)
-    solar_system.add_planet(new_planet)
-    puts new_planet.summary
-  end
-  
   puts "This program will help you learn more about planets in the Sol solar system."
   print "Choose one option:  'list planets', 'planet details', 'add planet', and 'exit' to exit the program. => "
-  user_command = gets.chomp  
+  user_command = gets.chomp.downcase
   until user_command == 'exit'
     case user_command
     when 'list planets'
@@ -73,7 +83,7 @@ def main
       add_planet(solar_system)
     end
     print "Choose one option:  'list planets', 'planet details', 'add planet', and 'exit' to exit the program. => "
-    user_command = gets.chomp
+    user_command = gets.chomp.downcase
   end
 end
 
