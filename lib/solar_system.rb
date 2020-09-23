@@ -30,3 +30,4 @@ class SolarSystem
   end
 
 end
+
