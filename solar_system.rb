@@ -15,7 +15,7 @@ class SolarSystem
   end 
 
   def list_planets
-    list = "Planets orbiting <star name>\n"
+    list = "Planets orbiting #{@star_name}\n"
     counter = 0
     @planets.each do |planet|
       counter += 1 
